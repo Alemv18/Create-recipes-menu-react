@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>List of recipes</title>
+</head>
+<body>
+	<div id="react-container">
+		<!-- <p id="list"></p> -->
+	</div>
+	<div id="list-of-items">
+		
+	</div>
+	<script src="https://unpkg.com/react@15/dist/react.js"></script>
+	<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+	<script>
+		var dish = React.createElement("h1", null, "Baked Salmon") 
+
+		ReactDOM.render(dish, document.getElementById('react-container'))
+
+		const items = [
+		"1 lb pizza",
+		"1 cup Pine Nuts",
+		"2 cups Butter Lettuce",
+		"1 Yellow Squash",
+		"1/2 cup Olive Oil",
+		"3 cloves of Garlic"
+		]
+		
+		const IngredientsList = React.createClass({
+			displayName: "IngredientsList",
+			render() {
+				return React.createElement("ul", {className: "ingredients"}, this.props.items.map((ingredient, i) => React.createElement("li", {key:i}, ingredient)))
+			}
+		})
+
+		ReactDOM.render(React.createElement(IngredientsList, {items}, null), document.getElementById('list-of-items'))
+
+	</script>
+</body>
+</html>
